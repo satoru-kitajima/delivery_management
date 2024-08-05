@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  delivery_date: 2024-07-09 01:39:19
+  package_size: 1
+  quantity: 1
+  preferred_shipment: MyString
+  delivery_type: MyString
+  pickup_required: false
+  delivery_required: false
+  status: MyString
+
+two:
+  delivery_date: 2024-07-09 01:39:19
+  package_size: 1
+  quantity: 1
+  preferred_shipment: MyString
+  delivery_type: MyString
+  pickup_required: false
+  delivery_required: false
+  status: MyString

@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-07-16 01:41:43
+  station_id: 
+
+two:
+  date: 2024-07-16 01:41:43
+  station_id: 

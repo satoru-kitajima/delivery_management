@@ -1,0 +1,19 @@
+{
+	"name": "Rails Development Container",
+	"context": "..",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "web",
+	"workspaceFolder": "/app",
+	"settings": {
+	  "terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"extensions": [
+	  "rebornix.Ruby",
+	  "castwide.solargraph",
+	  "misogi.ruby-rubocop",
+	  "editorconfig.editorconfig"
+	],
+	"forwardPorts": [3000],
+	"postCreateCommand": "bundle install"
+  }
+  

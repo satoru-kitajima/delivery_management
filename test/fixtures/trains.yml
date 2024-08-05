@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cargo_id: 1
+  departure_station_id: 1
+  arrival_station_id: 1
+  reception_start_time: 2024-07-12 05:59:22
+  extradition_start_time: 2024-07-12 05:59:22
+
+two:
+  name: MyString
+  cargo_id: 1
+  departure_station_id: 1
+  arrival_station_id: 1
+  reception_start_time: 2024-07-12 05:59:22
+  extradition_start_time: 2024-07-12 05:59:22

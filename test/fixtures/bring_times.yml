@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2024-07-16 01:42:21
+  request_id: 
+
+two:
+  time: 2024-07-16 01:42:21
+  request_id: 

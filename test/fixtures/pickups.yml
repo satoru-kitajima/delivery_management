@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  phone: MyString
+  available_time_start: 2024-07-16 01:39:37
+  available_time_end: 2024-07-16 01:39:37
+
+two:
+  name: MyString
+  address: MyString
+  phone: MyString
+  available_time_start: 2024-07-16 01:39:37
+  available_time_end: 2024-07-16 01:39:37

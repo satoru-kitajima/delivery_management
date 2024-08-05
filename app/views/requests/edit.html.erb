@@ -1,0 +1,55 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">編集する</h1>
+    <div class="form">
+      <div class="form-body">
+        <%= form_with(model: @request, local: true) do |form| %>
+                <% @request.errors.full_messages.each do |message| %>
+                    <div class="form-error">
+                        <%= message %>
+                    </div>
+                <% end %> 
+
+                <div class="field">
+                    <%= form.label "配送日" %>
+                    <%= form.datetime_select :delivery_date %>
+                </div>
+
+                <div class="field">
+                    <%= form.label "荷物サイズ" %>
+                    <%= form.select :package_size, options_for_select([60, 80, 100, 140]) %>
+                </div>
+
+                <div class="field">
+                    <%= form.label "荷物量" %>
+                    <%= form.number_field :quantity %>
+                </div>
+
+                <div class="field">
+                    <%= form.label "希望便" %>
+                    <%= form.text_field :preferred_shipment %>
+                </div>
+
+                <div class="field">
+                    <%= form.label "配送タイプ" %>
+                    <%= form.select :delivery_type, options_for_select(['Aタイプ', 'Bタイプ', 'Cタイプ']) %>
+                </div>
+
+                <div class="field">
+                    <%= form.label "集荷要否" %>
+                    <%= form.check_box :pickup_required %>
+                </div>
+
+                <div class="field">
+                    <%= form.label "配達要否" %>
+                    <%= form.check_box :delivery_required %>
+                </div>
+
+                <div class="actions">
+                    <%= form.submit "編集する" %>
+                </div>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>
