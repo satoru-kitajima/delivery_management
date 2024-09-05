@@ -1,96 +1,251 @@
-/* posts/index ================================ */
-.posts-index-item {
-    padding: 20px 30px;
-    background-color: white;
-    overflow: hidden;
-    box-shadow: 0 2px 6px #c1ced7;
+  /* 全体のスタイル */
+.main.posts-new {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* コンテナのスタイル */
+.container {
+  max-width: 100%;
+  margin: 20 auto;
+}
+
+/* 見出しのスタイル */
+.form-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* フォームのスタイル */
+.form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* フォームエラーメッセージのスタイル */
+.form-error {
+  color: #d9534f;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* フィールドのスタイル */
+.field {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #495057;
+  width: 120px; /* ラベルの固定幅を設定 */
+  text-align: left; /* ラベルのテキストを右揃え */
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="date"],
+.field select{
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.field input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+
+
+/* アクションボタンのスタイル */
+.actions {
+  text-align: center;
+}
+
+.actions input[type="submit"] {
+  background-color: #3ecdc6;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #3ecdc6;
+}
+
+/* カレンダー入力のスタイル */
+.date-picker {
+  /* width: 70%; */
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  box-sizing: border-box;
+}
+
+/* チェックボックスのフィールドのスタイル */
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ラベルのスタイル */
+.checkbox-field label {
+  font-weight: 600;
+  color: #495057;
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
+  width: 120px; /* 他のフィールドと同じ幅に設定 */
+  text-align: left;
+}
+
+/* チェックボックスのスタイル */
+.checkbox-field input[type="checkbox"] {
+  transform: scale(1.5); /* チェックボックスを少し大きくする */
+  width: auto; /* チェックボックスの幅を自動調整 */
+}
+
+/* ボタンのスタイル */
+.actions {
+  text-align: center; /* ボタンを中央揃えにする */
+  margin-top: 20px;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #0056b3; /* ホバー時の色を変更 */
+}
+
+
+
+/* レスポンシブデザインのサポート */
+@media (max-width: 600px) {
+  .form-heading {
+    font-size: 20px;
   }
-  
-  .post-left img {
-    width: 50px;
-    height: 50px;
-    border-radius: 40%;
-    box-shadow: 0 2px 6px #c1ced7;
-    object-fit: cover;
-  }
-  
-  .post-user-name a {
-    font-weight: 600;
-  }
-  
-  .post-user-name a:hover {
-    color: #3ecdc6;
-  }
-  
-  .post-left {
-    float: left;
-    width: 10%;
-  }
-  
-  .post-right {
-    float: left;
-    width: 90%;
-    padding-left: 25px;
-    text-align: left;
-  }
-  
-  /* posts/show ================================ */
-  .posts-show form {
-    display: inline;
-  }
-  
-  .posts-show-item {
-    padding: 30px;
-    background-color: white;
-    box-shadow: 0 2px 6px #c1ced7;
-    overflow: hidden;
-  }
-  
-  .posts-show-item img {
-    width: 60px;
-    height: 60px;
-    border-radius: 40%;
-    box-shadow: 0 2px 6px #c1ced7;
-    vertical-align: middle;
-    object-fit: cover;
-  }
-  
-  .posts-show-item .post-user-name a {
-    vertical-align: middle;
-    font-size: 24px;
-    margin-left: 15px;
-  }
-  
-  .posts-show-item p {
-    font-size: 24px;
-    margin: 20px 0;
-  }
-  
-  .post-time {
-    color: #8899a6;
-    margin-bottom: 10px;
-  }
-  
-  .post-menus {
-    float: right;
-  }
-  
-  .post-menus a, .post-menus input {
-    color: #8899a6;
-    text-decoration: underline;
+
+  .field input[type="text"],
+  .field input[type="number"],
+  .field select {
     font-size: 14px;
   }
-  
-  /* posts/new ================================ */
-  .posts-new textarea {
-    font-size: 20px;
-    padding: 10px;
-    min-height: 140px;
-    border: 1px solid rgb(216, 218, 223);
-    resize: none;
+
+  .actions input[type="submit"] {
+    font-size: 14px;
+    padding: 8px 16px;
   }
+}
+
+/* インデックス */
+.table-container {
+  max-width: 50%;
+  overflow-x: auto;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #333;
+  table-layout: fixed; /* テーブルの列幅を固定 */
+}
+
+thead {
+  background-color: #4CAF50;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
   
-  .posts-new textarea::-webkit-input-placeholder {
-    font-size: 24px;
-    opacity: 0.5;
-  }
+}
+
+th {
+  background-color: #3ecdc6;
+  font-weight: bold;
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
+  text-overflow: ellipsis; /* テキストが長い場合は省略記号を表示 */
+}
+
+th:first-child{
+  width: 8%;
+}
+
+th:nth-child(2){
+  width: 12%;
+}
+
+th:nth-child(5){
+  width: 7%;
+}
+
+th:nth-child(6){
+  width: 7%;
+}
+
+th:last-child{
+  width: 140px;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td:last-child {
+  text-align: right;
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
+}
+
+td:nth-last-child(2){
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
+}
+
+a, button {
+  color: #4CAF50;
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+a:hover, button:hover {
+  color: #45a049;
+}
+

@@ -1,5 +1,5 @@
-<div class="main posts-new">
-  <div class="container">
+<div class="main posts-index">
+  <div class="container table-container">
     <h1 class="form-heading">配送リクエスト</h1>
     <div class="form">
       <div class="form-body">
@@ -11,32 +11,54 @@
                 <% end %> 
 
                 <div class="field">
-                    <%= form.label "配送日" %>
-                    <%= form.date_select :delivery_date %>
+                    <%= form.label "配送日 *" %>
+                    <%= form.date_field :delivery_date, class: "date-picker" %>
                 </div>
 
                 <div class="field">
-                    <%= form.label "希望便" %>
-                    <%= form.collection_select :preferred_shipment, Train.all, :id, :name, prompt: "便を選択してください" %>
+                    <%= form.label "希望便 *" %>
+                    <%= form.collection_select :trains_id, Train.all, :id, :name, prompt: "便を選択してください" %>
                 </div>
 
                 <div class="field">
-                    <%= form.label "集荷要否" %>
-                    <%= form.check_box :pickup_required %>
+                    <%= form.label "集荷先 *" %>
+                    <%= form.collection_select :pickup_id, Pickup.all, :id, :name, prompt: "集荷先を選択してください" %>
                 </div>
 
                 <div class="field">
-                    <%= form.label "配達要否" %>
-                    <%= form.check_box :delivery_required %>
+                    <%= form.label "配達先 *" %>
+                    <%= form.collection_select :dropoff_id, Dropoff.all, :id, :name, prompt: "配達先を選択してください" %>
                 </div>
 
-                <%= form.fields_for :packages do |package_form| %>
+                <div class="field checkbox-field">
+                    <%= form.label :pickup_required, "集荷要否", for: "pickup_required" %>
+                    <%= form.check_box :pickup_required, id: "pickup_required" %>
+                </div>
+
+                <div class="field checkbox-field">
+                    <%= form.label :delivery_required, "配達要否", for: "delivery_required" %>
+                    <%= form.check_box :delivery_required, id: "delivery_required" %>
+                </div>
+
+                <%= form.fields_for :package do |package_form| %>
                     <div class="field">
-                        <%= package_form.label "荷物サイズ" %>
+                        <%= package_form.label "荷物サイズ *" %>
                         <%= package_form.select :size, options_for_select([60, 100, 120, 140]), prompt: "サイズを選択してください" %>
-                    </div>       
-                <% end %>
+                    </div>
 
+                    <div class="field">
+                        <%= package_form.label "個数 *" %>
+                        <%= package_form.number_field :quantity %>
+                    </div>
+
+                    <div class="field">
+                        <%= package_form.label "品目 *" %>
+                        <%= package_form.collection_select :item_id, Item.all, :id, :name, prompt: "品目を選択してください" %>
+                    </div>
+
+                <% end %>   
+
+            
                 <div class="actions">
                     <%= form.submit "依頼する" %>
                 </div>

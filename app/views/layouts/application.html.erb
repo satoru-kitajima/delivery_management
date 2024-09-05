@@ -19,24 +19,12 @@
               <%= @current_user.name %>
             </li>
             <li>
-              <%= link_to("About", "/about") %>
-            </li>
-            <li>
-              <%= link_to("配送一覧", "/requests") %>
-            </li>
-            <li>
               <%= link_to("新規配送", "/requests/new") %>
             </li>
             <li>
               <%= button_to("ログアウト", "/logout", {method:"post"}) %>
             </li>
           <% else %>
-            <li>
-              <%= link_to("About", "/about") %>
-            </li>
-            <li>
-              <%= link_to("配送一覧", "/requests") %>
-            </li>
             <li>
               <%= link_to("新規配送", "/requests/new") %>
             </li>
@@ -52,6 +40,11 @@
         <%= flash[:notice] %>
       </div>
     <% end %>  
+  <% if flash[:alert] %>
+      <div class="flash alert">
+        <%= flash[:alert] %>
+      </div>
+  <% end %>  
   <body>
     <%= yield %>
   </body>

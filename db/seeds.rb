@@ -15,3 +15,10 @@ CSV.foreach(Rails.root.join('db/seeds/cargos.csv'), headers: true) do |row|
     capacity: row['capacity']
   })
 end
+
+CSV.foreach(Rails.root.join('db/seeds/items.csv'), headers: true) do |row|
+  Item.create({
+    id: row['id'],
+    name: row['name']
+  })
+end

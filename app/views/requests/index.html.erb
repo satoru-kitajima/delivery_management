@@ -4,22 +4,44 @@
       <thead>
         <tr>
           <th>配送日時</th>
+          <th>運行便</th>
+          <th>集荷先</th>
+          <th>配達先</th>
           <th>集荷希望</th>
           <th>配達希望</th>
+          <th>荷物サイズ</th>
+          <th>個数</th>
+          <th>品目</th>
           <th>ステータス</th>
-          <th colspan="3"></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>
-        <% @requests.each do |delivery_request| %>
+        <% @requests.each do |request| %>
           <tr>
-            <td><%= delivery_request.delivery_date %></td>
-            <td><%= delivery_request.pickup_required ? 'はい' : 'いいえ' %></td>
-            <td><%= delivery_request.delivery_required ? 'はい' : 'いいえ' %></td>
-            <td><%= delivery_request.status %></td>
-            <td><%= link_to '表示', "/requests/#{delivery_request.id}" %></td>
-            <td><%= link_to '編集', "/requests/#{delivery_request.id}/edit" %></td>
-            <td><%= button_to '削除', "/requests/#{delivery_request.id}", method: :delete %></td>
+            <td><%= request.delivery_date.strftime("%Y-%m-%d") %></td>
+            <td><%= request.train.name %></td>
+            <td><%= request.pickup.name %></td>
+            <td><%= request.dropoff.name %></td>
+            <td><%= request.pickup_required ? '有' : '無' %></td>
+            <td><%= request.delivery_required ? '有' : '無' %></td>
+            <td><%= request.package.size %></td>
+            <td><%= request.package.quantity %></td>
+            <td><%= request.package.item.name %></td>
+            <td><%= case request.status
+                  when "1"
+                    '配送準備'
+                  when "2"
+                    '配送中'
+                  when "3"
+                    '配送完了'
+                  else
+                    'ステータス未定'
+                  end %>
+            </td>
+
+            <td><%= link_to '編集', "/requests/#{request.id}/edit" %></td>
+            <td><%= button_to '削除', "/requests/#{request.id}", method: :delete %></td>
           </tr> 
         <% end %>
       </tbody>

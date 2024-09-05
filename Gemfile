@@ -48,6 +48,7 @@ gem "bootsnap", require: false
 gem "bigdecimal"
 gem "mutex_m"
 gem 'bcrypt', '~> 3.1.7'
+gem 'csv'
 
 
 group :development, :test do
