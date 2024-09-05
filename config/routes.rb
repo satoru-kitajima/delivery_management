@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'requests#index'
-  get '/about' => 'home#about'
  
-  resources :requests
+  resources :requests, except: [:show]
 
   get "signup" => "users#new"
   post "users/create" => "users#create"

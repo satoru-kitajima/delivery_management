@@ -1,26 +1,3 @@
-  /* 全体のスタイル */
-.main.posts-new {
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* コンテナのスタイル */
-.container {
-  max-width: 100%;
-  margin: 20 auto;
-}
-
-/* 見出しのスタイル */
-.form-heading {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
-}
-
 /* フォームのスタイル */
 .form {
   background-color: #ffffff;
