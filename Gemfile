@@ -49,6 +49,8 @@ gem "bigdecimal"
 gem "mutex_m"
 gem 'bcrypt', '~> 3.1.7'
 gem 'csv'
+gem 'drb', '~> 2.0'
+
 
 
 group :development, :test do
@@ -71,4 +73,16 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0' # RSpec Railsを追加
+end
+
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+
+group :test do
+  gem 'rails-controller-testing'
 end

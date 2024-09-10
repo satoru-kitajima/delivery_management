@@ -12,11 +12,12 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
+    logger.debug "Request parameters: #{request_params.inspect}"  # パラメータを出力
     @request.user_id = @current_user.id 
 
     if handle_request(@request, new_request_path)
       flash[:notice] =  "配送依頼が作成されました"
-      redirect_to requests_path
+      redirect_to "/"
     end
   end
 

@@ -10,12 +10,12 @@ class Request < ApplicationRecord
     belongs_to :pickup, foreign_key: :pickup_id, optional: true
     belongs_to :dropoff, foreign_key: :dropoff_id, optional: true
 
-    has_one :bring_times
-    has_one :cancel
     has_one :cargo, through: :train
-
     has_one :package, dependent: :destroy
     accepts_nested_attributes_for :package
+
+    enum status: { pending: 0, confirmed: 1, delivered: 2 }
+
 
     def exceeds_cargo_capacity?
         # 新規リクエストに紐づくパッケージのサイズと数量を計算

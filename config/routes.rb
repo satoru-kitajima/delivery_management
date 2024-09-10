@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   get '/' => 'requests#index'
  
   resources :requests, except: [:show]
+  resources :users, only: [:new, :create]
 
-  get "signup" => "users#new"
-  post "users/create" => "users#create"
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"
