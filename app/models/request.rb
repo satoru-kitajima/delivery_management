@@ -14,7 +14,7 @@ class Request < ApplicationRecord
     has_one :package, dependent: :destroy
     accepts_nested_attributes_for :package
 
-    enum status: { pending: 0, confirmed: 1, delivered: 2 }
+    enum status: { pending: 1, confirmed: 2, delivered: 3 }
 
 
     def exceeds_cargo_capacity?
