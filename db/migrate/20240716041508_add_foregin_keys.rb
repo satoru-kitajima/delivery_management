@@ -18,7 +18,6 @@ class AddForeginKeys < ActiveRecord::Migration[6.1]
     add_foreign_key :requests, :users, column: :user_id
     add_foreign_key :requests, :pickups, column: :pickup_id
     add_foreign_key :requests, :dropoffs, column: :dropoff_id
-    add_foreign_key :requests, :trains, column: :preferred_shipment
 
     add_foreign_key :packages, :items, column: :item_id
     add_foreign_key :packages, :requests, column: :request_id
