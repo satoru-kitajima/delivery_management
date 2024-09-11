@@ -3,8 +3,7 @@ class UpdatePreferredShipmentToTrainsInRequests < ActiveRecord::Migration[6.1]
     # preferred_shipmentカラムを削除
     remove_column :requests, :preferred_shipment, :bigint
     
-    # 外部キー制約を削除
-    remove_foreign_key :requests, column: :preferred_shipment_id
+    # 外部キー制約が存在しないため、削除は行わない
 
     # preferred_shipment_idをtrain_idに変更
     rename_column :requests, :preferred_shipment_id, :train_id
