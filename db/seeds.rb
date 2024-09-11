@@ -22,3 +22,22 @@ CSV.foreach(Rails.root.join('db/seeds/items.csv'), headers: true) do |row|
     name: row['name']
   })
 end
+
+CSV.foreach(Rails.root.join('db/seeds/station.csv'), headers: true) do |row|
+  Station.create({
+    id: row['id'],
+    name: row['name']
+  })
+end
+
+CSV.foreach(Rails.root.join('db/seeds/trains.csv'), headers: true) do |row|
+  Train.create({
+    id: row['id'],
+    name: row['name'],
+    cargo_id: row['cargo_id'],
+    departure_station_id: row['departure_station_id'],
+    arrival_station_id: row['arrival_station_id'],
+    reception_start_time: row['reception_start_time'],
+    extradition_start_time: row['extradition_start_time']
+  })
+end
