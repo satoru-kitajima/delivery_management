@@ -10,28 +10,28 @@
 require 'csv'
 
 CSV.foreach(Rails.root.join('db/seeds/cargos.csv'), headers: true) do |row|
-  Cargo.create({
+  Cargo.find_or_create_by!({
     id: row['id'],
     capacity: row['capacity']
   })
 end
 
 CSV.foreach(Rails.root.join('db/seeds/items.csv'), headers: true) do |row|
-  Item.create({
+  Item.find_or_create_by!({
     id: row['id'],
     name: row['name']
   })
 end
 
 CSV.foreach(Rails.root.join('db/seeds/station.csv'), headers: true) do |row|
-  Station.create({
+  Station.find_or_create_by!({
     id: row['id'],
     name: row['name']
   })
 end
 
 CSV.foreach(Rails.root.join('db/seeds/trains.csv'), headers: true) do |row|
-  Train.create({
+  Train.find_or_create_by!({
     id: row['id'],
     name: row['name'],
     cargo_id: row['cargo_id'],
