@@ -60,9 +60,9 @@
           <div class="field">
             <%= form.label "ステータス" %>
             <%= form.select :status, options_for_select([
-                ['要配送手配', 1],
-                ['配送準備', 2],
-                ['完了', 3]
+                ['要配送手配', "pending"],
+                ['配送準備', "confirmed"],
+                ['完了', "delivered"]
             ], @request.status), prompt: "ステータスを選択してください" %>
             </div>
    
