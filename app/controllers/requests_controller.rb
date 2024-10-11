@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     logger.debug "Request parameters: #{request_params.inspect}"  # パラメータを出力
     @request.user_id = @current_user.id 
 
-    if handle_request(@request, new_request_path)
+    if handle_request(@request, new_request_path, new_record: true)
       flash[:notice] =  "配送依頼が作成されました"
       redirect_to "/"
     end
@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
     @request.assign_attributes(request_params)
     @request.user_id = @current_user.id 
 
-    if handle_request(@request, edit_request_path(@request))
+    if handle_request(@request, edit_request_path(@request), new_record: false)
       flash[:notice] = "配送依頼が更新されました"
       redirect_to requests_path
     end
@@ -61,7 +61,7 @@ class RequestsController < ApplicationController
     redirect_to redirect_path
   end
 
-  def handle_request(request, redirect_path)
+  def handle_request(request, redirect_path, new_record: true)
     logger.debug "Request attributes before save: #{request.inspect}"
 
     unless request.package&.valid?
@@ -76,7 +76,7 @@ class RequestsController < ApplicationController
       handle_error("キャパシティを超えています。別の日付か運行便を選択してください。", redirect_path) and return false
     end
 
-    set_status(@request)
+    set_status(request) if new_record
 
     if request.save
       logger.debug "Request saved successfully: #{request.inspect}"
