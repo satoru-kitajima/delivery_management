@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_09_10_013813) do
+ActiveRecord::Schema.define(version: 2024_10_11_051918) do
 
   create_table "cargos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "capacity"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2024_09_10_013813) do
     t.bigint "preferred_shipment"
     t.index ["dropoff_id"], name: "fk_rails_c7bf9203c1"
     t.index ["pickup_id"], name: "fk_rails_5cb3c05d70"
-    t.index ["preferred_shipment"], name: "fk_rails_fab4818331"
     t.index ["trains_id"], name: "index_requests_on_trains_id"
     t.index ["user_id"], name: "fk_rails_8ead8b1e6b"
   end
@@ -91,8 +90,8 @@ ActiveRecord::Schema.define(version: 2024_09_10_013813) do
     t.time "extradition_start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["arrival_station_id"], name: "index_trains_on_arrival_station_id"
-    t.index ["departure_station_id"], name: "index_trains_on_departure_station_id"
+    t.index ["arrival_station_id"], name: "fk_rails_865db13bd3"
+    t.index ["departure_station_id"], name: "fk_rails_2f88306262"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -109,7 +108,6 @@ ActiveRecord::Schema.define(version: 2024_09_10_013813) do
   add_foreign_key "packages", "requests"
   add_foreign_key "requests", "dropoffs"
   add_foreign_key "requests", "pickups"
-  add_foreign_key "requests", "trains", column: "preferred_shipment"
   add_foreign_key "requests", "trains", column: "trains_id"
   add_foreign_key "requests", "users"
   add_foreign_key "trains", "stations", column: "arrival_station_id"
