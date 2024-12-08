@@ -12,7 +12,6 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    logger.debug "Request parameters: #{request_params.inspect}"  # パラメータを出力
     @request.user_id = @current_user.id 
 
     if handle_request(@request, new_request_path, new_record: true)
